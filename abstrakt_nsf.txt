@@ -1,0 +1,37 @@
+TITTEL:
+Clustering of sparse, high-dimensional binary data applied to single-cell RNA sequencing. 
+
+FORFATTARAR:
+M{\o}llersen, Kajsa (UiT - The Arctic University of Norway) | kajsa.mollersen@uit.no
+
+
+SPRÅK-PRESENTASJON:
+en
+
+
+ABSTRAKT:
+Single-cell RNA sequencing (scRNA-seq) measures the gene expression level for each gene in each cell in a sample. A sample 
+typically consists of a few thousand cells, and the observed gene expression level in 10-30,000 genes. The gene expression 
+level is a non-negative integer with values ranging from 0 to several thousands, but the majority - often as much as 
+$90 \%$ - of observed expression levels is 0. The positive expression levels are highly skewed towards lower levels. A 
+substantial proportion of the 0 observations is due to shortcomings in the scRNA-seq technology: failure of capturing 
+positive gene expression levels, referred to as {\it dropouts}. 
+
+The cells in a sample come from different types and subtypes, but the cell type labels are not available, except for
+laboratory grown samples. The main objective of cell clustering is to group together those cells that show similar gene 
+expression patterns, so that cell types can be correctly identified, and possibly new subtypes can be revealed. The 
+dropout rate varies from cell to cell, even within the same cell type, and cells that have similar biological gene 
+expression pattern will not have similar observed gene expression pattern.
+
+We propose a clustering method for sparse, high-dimensional scRNA-seq data that contains the following parts:
+(0) Binarization of the gene expression level into not expressed (0) and expressed (1). 
+(1a) A non-symmetric dissimilarity measure based on cell-to-cell conditional probability: $P(X_{ij}=1|x_{\ellj}= 1)$,
+where $x_{ij}$ is the gene expression of gene $j$ in cell $i$. 
+(1b) A corresponding clustering that serves as starting point for an iterative EM-like algorithm.
+(2a) Estimation of a prototype cell for each cluster: a cell without dropouts. 
+(2b) Estimation of the dropout rate for each cell.
+(2c) Clustering based on the maximum log likelihood. 
+Step (2a)-(2c) is repeated until convergence.
+
+We show that this method gives correct cell clustering for laboratory grown samples, and we demonstrate the results on 
+samples from patients. 
